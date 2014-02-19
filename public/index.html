@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="frshnss">
+<head>
+  	<meta charset="utf-8">
+	<title>FRESHNESS</title>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/lib/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/lib/responsive-nav.css">
+	<link rel="stylesheet" type="text/css" href="css/styler.css">
+
+	<!-- js + lib -->
+	<script src="lib/angular.min.js" type="text/javascript"></script>
+	<script src="lib/angular-route.min.js" type="text/javascript"></script>
+	<script src="lib/angular-resource.min.js" type="text/javascript"></script>
+	<script src="lib/dateHelpers.js" type="text/javascript"></script>
+	<script src="lib/responsive-nav.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers/frshnssControllers.js"></script>
+	<script src="js/controllers/templateControllers.js"></script>
+ 	<script src="js/directives.js"></script>
+	<script src="js/services.js"></script>
+ 	<script src="js/filters.js"></script>
+
+</head>
+<body>
+	<div class="bodyContainer">
+		<div ng-header></div>
+		<div ng-controller="NavigationCtrl">
+			<nav class="nav-collapse">
+				<ul>
+					<li ng-repeat="link in links">
+						<a href="index.html#/{{link.url}}">{{link.linkName}}</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="view-container">
+	    	<div ng-view class="view-frame"></div>
+	  	</div>
+		<footer ng-controller="FooterCtrl">
+			{{name}}
+		</footer>
+	</div>
+
+<script>
+var nav = responsiveNav(".nav-collapse", {
+  insert: "before", // String: Insert the toggle before or after the navigation
+});
+</script>
+</body>
+</html>

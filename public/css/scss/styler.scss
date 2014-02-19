@@ -1,0 +1,153 @@
+@import '_globals';
+@import '_mixins';
+@import '_fonts';
+@import '_baseClasses';
+
+// hammer.js
+
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+  color: $black;
+  font-size: 16px;
+  //line-height: 28px; // http://www.pearsonified.com/typography/
+  font-family: 'open_sanslight';
+}
+
+.bodyContainer{
+	width: $containerWidth;
+	margin: 0 auto;
+}
+
+footer{
+	background-color: $ftrBgColor;
+	color: $ftrColor;
+	height: 50px;
+	margin-top: 50px;
+}
+
+.divider{
+	background-color: $black;
+	height: 10px;
+	width: 100%;
+}
+
+.calendar{
+	.timeline{
+		margin: 5px 0 20px 0;
+		border-bottom: 5px solid $black;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		.date{
+			width: 120px;
+			margin: 0 auto;
+			padding-top: 5px;
+			text-align: center;
+			@include contrast1;
+		}
+	}
+	.trainings{
+		overflow: hidden; //clearing floats
+		.training{
+			@include columnWidthAndSettings(3, 10);
+			//height: 320px;
+			float: left;
+			font-family: 'open_sansbold';
+			font-size: 30px;
+			.spacer{
+				@include width(3, 10, 7);
+				border: 2px solid $black;
+				border-bottom: 0px;
+				height: 30px;
+			}
+			.contrast{
+				@include contrast1;
+				@include width(3, 10, 7);
+				-webkit-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.3);
+				-moz-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.3);
+				box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.3);
+				&:after{
+					content: "";
+					width: 0px;
+					height: 89px;
+					border-bottom: 7px solid transparent;
+					border-left: 7px solid $black;
+					position: relative;
+					float: right;
+					right: -7px;
+					top: -41px;
+				}
+			}
+			.content{
+				@include width(3, 10, 7);
+				border: 2px solid $black;
+				border-top: 0px;
+			}
+			a{
+				color: $linkColor;
+				text-decoration: none;
+				&:hover{
+					color: $linkColorHover;
+				}
+			}
+		}
+	}
+}
+
+.about{
+	.qanda{
+ 		line-height: 28px; // http://www.pearsonified.com/typography/
+		overflow: auto; //clearing floats
+		margin-bottom: 20px;
+		.q{
+			margin-bottom: 25px;
+			p{
+				@include contrast1;
+			}
+			.triangle{
+				float: left;
+				border-top: 10px solid $black;
+			}
+		}
+		.a{
+			text-align: right;
+			margin-bottom: 25px;
+			p{
+				@include contrast2;
+			}
+			.triangle{
+				float: right;
+				border-top: 10px solid $red;
+			}
+		}
+		p{
+			@extend .conversationBalloon;
+			margin-bottom: 0px;
+		}
+		.triangle{
+			@extend .baseTriangle;
+			border-right: 10px solid transparent;
+			border-left: 10px solid transparent;
+			margin: 0 20px 0 20px;
+		}
+	}
+	.staff{
+		overflow: auto; //clearing floats
+		.member{
+			@include columnWidthAndSettings(4, 10);
+			float: left;
+			img{ 
+			}
+			p{
+				@include contrast1;
+				margin-bottom: 2px;
+				margin-top: 2px;
+				a{}
+			}
+		}
+	}
+}

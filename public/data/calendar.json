@@ -1,0 +1,27 @@
+{
+	"title": "KALENDER",
+	"trainings":{
+		"title": "TRAINING",
+		"subtitle": "OPEN & FREE FOR EVERYONE VERSE HIPHOP & BREAKBEATS",
+		"training": [
+			{
+				"day": "MAANDAG",
+				"start": "19h00",
+				"end": "22h00",
+				"locatie": "HASSELT"
+			},
+			{
+				"day": "VRIJDAG",
+				"start": "19h00",
+				"end": "22h00",
+				"locatie": "HASSELT"
+			},
+			{
+				"day": "ZATERDAG",
+				"start": "18h00",
+				"end": "23h00",
+				"locatie": "GENK"
+			}
+		]
+	}
+}
