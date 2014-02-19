@@ -1,0 +1,6 @@
+<div ng-repeat="wine in wines">
+	<p>{{wine | json}}</p>
+	<a ng-click="editWine(wine._id)">edit</a>
+	<a ng-click="deleteWine(wine._id)">delete</a>
+</div>
+<a ng-click="createNewWine()">create new</a>

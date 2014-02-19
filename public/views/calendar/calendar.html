@@ -1,0 +1,22 @@
+<div class="calendar">
+	<h1>{{data.title}}</h1>
+	<div class="timeline">
+		<div class="date">
+			Week {{week}}
+		</div>
+	</div>
+	<div class="trainings">
+		<div ng-repeat="event in events.items" class="training" id="{{event.id}}">
+			<div class="spacer"></div>
+			<div class="contrast">
+				{{event.start.dateTime | date:'EEEE' | uppercase}}<br />
+				<a href="{{event.htmlLink}}">{{event.summary}}</a>
+			</div>
+			<div class="content">
+				{{event.description}}<br />
+				<div id="{{event.location}}">{{event.location | location}}</div>
+				{{event.start.dateTime | date:'HH:mm'}} - {{event.end.dateTime | date:'HH:mm'}}
+			</div>
+		</div>
+	</div>
+</div>

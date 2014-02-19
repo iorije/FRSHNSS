@@ -14,18 +14,23 @@ frshnss.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/home', {
-        templateUrl: 'partials/home.html',
+        templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       }).
       when('/about', {
-        templateUrl: 'partials/about.html',
+        templateUrl: 'views/about/about.html',
         controller: 'AboutCtrl'
       }).
-      when('/wine', {
-        templateUrl: 'partials/wine.html',
+      when('/wines', {
+        templateUrl: 'views/wines/index.html',
         controller: 'WineCtrl'
+      }).
+      when('/wines/:id', {
+        templateUrl: 'views/wines/detail.html',
+        controller: 'WineDetailCtrl'
       }).
       otherwise({
         redirectTo: '/home'
       });
-  }]);
+  }
+]);

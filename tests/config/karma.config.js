@@ -14,10 +14,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../app/lib/angular.min.js',
-      '../app/lib/angular-*.js',
-      '../app/js/*.js',
-      '../app/js/controllers/*js',
+      '../public/lib/angular.min.js',
+      '../public/lib/angular-*.js',
+      '../public/js/*.js',
+      '../public/js/controllers/*js',
       'lib/*.js',
       'unit/*.js'
     ],

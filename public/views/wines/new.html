@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>wine detail</h1>
+
+    <form novalidate="novalidate">
+        <input type="text" id="inputName" ng-model="wine.name"/>
+        <input type="text" id="inputYear" ng-model="wine.year"/>
+        <input type="text" id="inputGrapes" ng-model="wine.grapes"/>
+        <input type="text" id="inputCountry" ng-model="wine.country"/>
+        <input type="text" id="inputRegion" ng-model="wine.region"/>
+        <input type="text" id="inputDescription" ng-model="wine.description"/>
+        <input type="text" id="inputPicture" ng-model="wine.picture"/>
+        <input type="text" id="input_id" ng-model="wine._id"/>
+
+      	<!-- user-creation.html: -->
+        <a ng-click="createNewWine()">create new</a>
+
+    </form>
+</div>

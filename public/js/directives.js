@@ -5,7 +5,7 @@ frshnss.directive('ngCalendar', function(){
   return {
     restrict: 'A',
     scope: true,
-    templateUrl: 'partials/calendar.html',
+    templateUrl: 'views/calendar/calendar.html',
     controller: ['$scope', '$http', '$log', 'DataService', function($scope, $http, $log, DataService) {
       $scope.data = DataService.get({fileName: 'calendar'});
 
@@ -42,7 +42,7 @@ frshnss.directive('ngBlog', function(){
   return {
     restrict: 'A',
     scope: true,
-    templateUrl: 'partials/blog.html',
+    templateUrl: 'views/blog/blog.html',
     controller: ['$scope', '$http', 'DataService', function($scope, $http, DataService){
       $scope.data = DataService.get({fileName: 'blogposts'});
       $scope.title = 'BLOG';

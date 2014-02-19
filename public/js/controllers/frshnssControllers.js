@@ -22,6 +22,18 @@ frshnssControllers.controller('AboutCtrl', ['$scope', '$http', 'DataService',
 
 frshnssControllers.controller('WineCtrl', ['$scope', 'WineService',
 	function($scope, WineService){
-    	$scope.wines = WineService.getWines();
+		WineService.getWines().then(function(data){
+			$scope.wines = data;
+			console.log(data);
+		});
+    }
+]);
+
+frshnssControllers.controller('WineDetailCtrl', ['$scope', 'WineService',
+	function($scope, WineService){
+		WineService.getWineById().then(function(data){
+			$scope.wine = data;
+			console.log(data);
+		});
     }
 ]);
