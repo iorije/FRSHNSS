@@ -21,6 +21,10 @@ frshnss.config(['$routeProvider',
         templateUrl: 'partials/about.html',
         controller: 'AboutCtrl'
       }).
+      when('/wine', {
+        templateUrl: 'partials/wine.html',
+        controller: 'WineCtrl'
+      }).
       otherwise({
         redirectTo: '/home'
       });

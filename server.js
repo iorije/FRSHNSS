@@ -9,6 +9,7 @@ app.configure(function(){
 	app.use(express.bodyParser());
 })
 
+app.use(express.static('./public'));
 app.get('/wines', wines.findAll);
 app.get('/wines/:id', wines.findById);
 app.post('/wines', wines.addWine);

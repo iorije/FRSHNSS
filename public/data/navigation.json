@@ -10,5 +10,9 @@
 	{
 		"linkName": "About",
 		"url": "about"		
+	},
+	{
+		"linkName": "wines",
+		"url": "wine"
 	}
 ]
