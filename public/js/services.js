@@ -12,18 +12,42 @@ frshnssServices.factory('DataService', ['$resource',
   	}
 ]);
 
-frshnssServices.factory('WineService', ['$http',
+frshnssServices.factory('UserService', ['$http',
     function($http){
       return {
-          getWines: function(){
-              return $http.get('http://localhost:3000/wines').then(function(result){
+          getUsers: function(){
+              return $http.get('http://localhost:3000/users').then(function(result){
                   return result.data;
               });
           },
-          getWineById: function(){
-              return $http.get('http://localhost:3000/wines/:id').then(function(result){
+          getUserById: function(){
+              return $http.get('http://localhost:3000/users/:id').then(function(result){
                   return result.data;
               });
+          }
+      }
+    }
+]);
+
+frshnssServices.factory('BlogService', ['$http',
+    function($http){
+      var baseUrl = "http://localhost:3000/posts";
+      return {
+          getPosts: function(){
+              return $http.get(baseUrl).then(function(result){
+                  return result.data;
+              });
+          },
+          getPostById: function(){
+              return $http.get(baseUrl + '/:id').then(function(result){
+                  return result.data;
+              });
+          },
+          addPost: function(newPost){
+              return $http.post(baseUrl, newPost);
+          },
+          deletePost: function(id){
+              return $http.delete(baseUrl + '/' + id);
           }
       }
     }

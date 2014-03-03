@@ -1,0 +1,10 @@
+<h1>{{title | uppercase}}</h1>
+<form novalidate>
+	title: <input type="text" ng-model="post.title" /><br />
+	subtitle: <input type="text" ng-model="post.subtitle" /><br />
+	content: <input type="text" ng-model="post.content" /><br />
+	image: <input type="text" ng-model="post.image" /><br />
+	<button ng-click="reset()">RESET</button>
+	<button ng-click="add(post)">SAVE</button>
+</form>
+<pre>post = {{post | json}}</pre>

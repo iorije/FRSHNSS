@@ -1,0 +1,11 @@
+<ul ng-repeat="post in postCollection">
+	<li>{{post.title}} | {{post.author}} <span class="icon-trash" ng-click="deletePost($index,post._id)"></span></li>
+</ul>
+<a href="index.html#/adm/blog/newpost">New Post</a><br />
+
+
+
+<button ng-click="toggleJson()">show json</button>
+<div class='{{isVisibleClass}}' ng-repeat="post in postCollection">
+	<p>{{post | json}}</p>
+</div>

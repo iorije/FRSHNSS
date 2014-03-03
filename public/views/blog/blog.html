@@ -1,24 +1,10 @@
-<div id="blog">
-	<h1>{{title}}</h1>
+<div class="blog">
+	<img class="bullet" ng-src="img/bullet.png"/><h1>{{title}}</h1>
+	<div class="smalldivider"></div>
+	<div ng-repeat="post in postCollection">
+		<h3 class="blogtitle" data-id="{{post._id}}">{{post.title | uppercase}}<span class="date">{{post.createDate | date:'dd-MM-yyyy'}}<span></h3>
+		<img class="picture" ng-src="{{post.image}}"/>
+		<p><span class="subtitle">{{post.subtitle}}</span><br />{{post.content}}</p>
+		<!--<p>{{post | json}}</p>-->
+	</div>
 </div>
-
-<div ng-repeat="post in data.posts">
-	<input type="text" ng-model="post.id">
-	<input type="text" ng-model="post.title">
-	<input type="text" ng-model="post.created">
-	<input type="text" ng-model="post.modified">
-	<input type="text" ng-model="post.author">
-	<input type="text" ng-model="post.intro">
-	<input type="text" ng-model="post.text">
-</div>
-<!-- <div>
-	<input type="text" ng-model="post.id">
-	<input type="text" ng-model="post.title">
-	<input type="text" ng-model="post.created">
-	<input type="text" ng-model="post.modified">
-	<input type="text" ng-model="post.author">
-	<input type="text" ng-model="post.intro">
-	<input type="text" ng-model="post.text">
-</div>
-
-<input type="submit" ng-click="save()"> -->

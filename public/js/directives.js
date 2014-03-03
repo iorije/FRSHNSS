@@ -7,9 +7,8 @@ frshnss.directive('ngCalendar', function(){
     scope: true,
     templateUrl: 'views/calendar/calendar.html',
     controller: ['$scope', '$http', '$log', 'DataService', function($scope, $http, $log, DataService) {
-      $scope.data = DataService.get({fileName: 'calendar'});
-
       $scope.now = new Date();
+      $scope.title = "Calendar"
       $scope.week = $scope.now.format('W');
       $scope.range =  new Date().getWeek();
       $scope.myKey = 'AIzaSyAsob09ntB3bXhkmbypqqwJyZVMqY3S8V8';
@@ -43,13 +42,13 @@ frshnss.directive('ngBlog', function(){
     restrict: 'A',
     scope: true,
     templateUrl: 'views/blog/blog.html',
-    controller: ['$scope', '$http', 'DataService', function($scope, $http, DataService){
-      $scope.data = DataService.get({fileName: 'blogposts'});
-      $scope.title = 'BLOG';
-      $scope.save = function() {
-        $scope.data.posts.push($scope.post);
-        $http.post('data/blogposts.json', $scope.data);
-      };
+    controller: ['$scope', '$http', 'BlogService', function($scope, $http, BlogService){
+      console.log('Getting blog');
+      BlogService.getPosts().then(function(data){
+        $scope.postCollection = data;
+        console.log(data);
+      });
+      $scope.title = 'NEWS';
     }]
   }
 });

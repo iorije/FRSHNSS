@@ -1,5 +1,6 @@
 var express = require('express'),
-	wines = require('./routes/wines'),
+	posts = require('./routes/posts'),
+	users = require('./routes/users'),
 	database = require('./dbconnection');
 
 var app = express();
@@ -7,15 +8,23 @@ var db = database.connect();
 
 app.configure(function(){
 	app.use(express.logger('dev'));
-	app.use(express.bodyParser());
+	app.use(express.json());
+	app.use(express.urlencoded());
 })
 
 app.use(express.static('./public'));
-app.get('/wines', wines.findAll(db));
-app.get('/wines/:id', wines.findById(db));
-app.post('/wines', wines.addWine(db));
-app.put('/wines/:id', wines.updateWine(db));
-app.delete('/wines/:id', wines.deleteWine(db));
+
+app.get('/users', users.findAll(db));
+app.get('/users/:id', users.findById(db));
+app.post('/users', users.add(db));
+app.put('/users/:id', users.update(db));
+app.delete('/users/:id', users.delete(db));
+
+app.get('/posts', posts.findAll(db));
+app.get('/posts/:id', posts.findById(db));
+app.post('/posts', posts.add(db));
+app.put('/posts/:id', posts.update(db));
+app.delete('/posts/:id', posts.delete(db));
 
 app.listen(3000);
-console.log('Welcome FreshMeister\nI\'m listening on port 3000...')
+console.log('Server: started on port 3000.');

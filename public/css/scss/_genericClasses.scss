@@ -1,0 +1,18 @@
+.divider{
+	background-color: $black;
+	height: 10px;
+	width: 100%;
+}
+.smalldivider{
+	background-color: $black;
+	height: 5px;
+	width: 100%;
+}
+
+.visible{
+	display:block;
+}
+
+.invisible{
+	display:none;
+}
