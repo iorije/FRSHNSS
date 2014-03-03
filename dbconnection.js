@@ -1,51 +1,26 @@
 var mongo = require('mongodb');
 
-var Server = mongo.Server,
-	Db = mongo.Db,
-	BSON = mongo.BSONPure;
+var MongoClient = require('mongodb').MongoClient,
+    Server = require('mongodb').Server,
+    BSON = require('mongodb').BSONPure;
 
-var server = new Server('localhost', 27017, {auto_reconnect: true});
-db = new Db('winedb', server);
+var mongoClient = new MongoClient(new Server('localhost', 27017));
+var db = mongoClient.db("FRSH");
 
 exports.connect = function(){
-	db.open(function(err, db){
-		if(!err){
-			console.log("Connected to FRSHNSS database");
-			db.collection('wines', {strict: true}, function(err, collection){
-				if(err){
-					console.log("The 'wines' collection does not exist. Creating it with sample data...");
-					populateDb();
-				}
-			});
-		}
-	});
-	return db;
-};
-
-var populateDb = function() {
- 
-    var wines = [
-    {
-        name: "CHATEAU DE SAINT COSME",
-        year: "2009",
-        grapes: "Grenache / Syrah",
-        country: "France",
-        region: "Southern Rhone",
-        description: "The aromas of fruit and spice...",
-        picture: "saint_cosme.jpg"
-    },
-    {
-        name: "LAN RIOJA CRIANZA",
-        year: "2006",
-        grapes: "Tempranillo",
-        country: "Spain",
-        region: "Rioja",
-        description: "A resurgence of interest in boutique vineyards...",
-        picture: "lan_rioja.jpg"
-    }];
- 
-    db.collection('wines', function(err, collection) {
-        collection.insert(wines, {safe:true}, function(err, result) {});
+    mongoClient.open(function(err){
+        if(!err){
+            db.collection('userCollection', {strict: true}, function(err, collection){
+                if(err){
+                    console.log('Connected to default instance of MongoDB');
+                    console.log("\t1. Run \"ps -e\"\n\t2. Find mongod\n\t3. execute \"sudo kill pid\"\n\t4. start a new instance of MongoDB with \"mongod --dbpath development/frshnss/data\"");
+                }else{
+                    console.log("Server connected to MongoDB\n");
+                }
+            });
+        }else{
+            console.log('Server failed to connect MongoDB');
+        }
     });
- 
+	return db;
 };
