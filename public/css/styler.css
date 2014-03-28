@@ -39,6 +39,12 @@
 .invisible {
   display: none; }
 
+.frsh-bullet {
+  float: left;
+  width: 33px;
+  padding-top: 4px;
+  margin-right: 4px; }
+
 @font-face {
   font-family: "dripicons";
   src: url("fonts/dripicons/dripicons.eot");
@@ -359,6 +365,61 @@
 .icon-window:before {
   content: "\e094"; }
 
+.nav-collapse ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+  list-style: none; }
+  .nav-collapse ul li {
+    width: 100%;
+    display: block; }
+
+.js .nav-collapse {
+  clip: rect(0 0 0 0);
+  max-height: 0;
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  zoom: 1; }
+
+.nav-collapse.opened {
+  max-height: 9999px; }
+
+.nav-collapse.disable-pointer-events {
+  pointer-events: none !important; }
+
+.nav-toggle {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
+
+@media screen and (min-width: 40em) {
+  .js .nav-collapse {
+    position: relative; }
+
+  .js .nav-collapse.closed {
+    max-height: none; }
+
+  .nav-toggle {
+    display: none; }
+
+  .nav-collapse ul li {
+    width: 120px;
+    float: left; }
+  .nav-collapse ul li {
+    width: 120px;
+    float: left;
+    background-color: #111111;
+    text-align: center; }
+    .nav-collapse ul li a {
+      color: white;
+      text-decoration: none;
+      font-family: 'open_sansbold'; } }
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -376,23 +437,62 @@ body {
 footer {
   background-color: #111111;
   color: white;
-  height: 50px;
-  margin-top: 50px; }
+  height: 400px;
+  margin-top: 5px;
+  font-family: 'open_sansbold'; }
+  footer .disclaimer {
+    font-family: 'open_sanslight';
+    text-align: center;
+    font-size: 12px;
+    padding-top: 5px; }
+  footer .wrapper {
+    height: 345px; }
+    footer .wrapper .col {
+      width: 306.66667px;
+      margin: 0 10px 0 10px;
+      float: left;
+      padding-top: 10px;
+      text-align: center; }
+      footer .wrapper .col:first-child {
+        margin-left: 0px; }
+      footer .wrapper .col:last-child {
+        margin-right: 0px; }
+      footer .wrapper .col .partners {
+        margin-left: 10px;
+        background-color: white;
+        color: #111111;
+        -webkit-box-shadow: inset 0px 4px 28px -7px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: inset 0px 4px 28px -7px rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0px 4px 28px -7px rgba(0, 0, 0, 0.5); }
+        footer .wrapper .col .partners .logo {
+          height: 150px;
+          margin-top: 12px; }
+        footer .wrapper .col .partners .partnerlogo {
+          width: 130px; }
+      footer .wrapper .col .regels {
+        font-family: 'open_sanslight';
+        text-align: left;
+        padding-left: 15px; }
+        footer .wrapper .col .regels li {
+          padding-bottom: 15px;
+          list-style-type: none; }
+      footer .wrapper .col p {
+        text-align: left; }
+        footer .wrapper .col p span {
+          font-family: 'open_sanslight'; }
+          footer .wrapper .col p span a {
+            color: white;
+            text-shadow: 2px 2px #a40200; }
 
 h1 {
   margin-bottom: 0px; }
 
-.blog .bullet {
-  float: left;
-  width: 33px;
-  padding-top: 4px;
-  margin-right: 4px; }
 .blog .blogtitle {
-  font-family: 'open_sansbold'; }
+  margin: 20px 0 8px 0;
+  border-bottom: 1px solid #111111; }
 .blog .date {
   color: #a40200;
-  float: right;
-  font-family: 'open_sansbold'; }
+  float: right; }
 .blog .picture {
   width: 960px; }
 .blog .subtitle {
@@ -411,6 +511,7 @@ h1 {
     background-color: #111111;
     color: white; }
 .calendar .trainings {
+  padding-top: 30px;
   overflow: hidden; }
   .calendar .trainings .training {
     width: 306.66667px;
@@ -443,11 +544,31 @@ h1 {
         position: relative;
         float: right;
         right: -7px;
-        top: -41px; }
+        top: -82px; }
+      .calendar .trainings .training .contrast p {
+        margin: 0px;
+        letter-spacing: 13px;
+        padding: 0 5px 0 5px;
+        text-align: center; }
+      .calendar .trainings .training .contrast a {
+        letter-spacing: 13px;
+        padding: 0 5px 0 5px;
+        text-align: center; }
     .calendar .trainings .training .content {
       width: 299.66667px;
       border: 2px solid #111111;
-      border-top: 0px; }
+      border-top: 0px;
+      padding: 10px 10px 0 10px; }
+      .calendar .trainings .training .content .HASSELT {
+        letter-spacing: 23.6px; }
+      .calendar .trainings .training .content .GENK {
+        letter-spacing: 63.4px; }
+      .calendar .trainings .training .content .date {
+        letter-spacing: 7.4px;
+        border-bottom: 2px solid #111111;
+        margin-bottom: 5px; }
+        .calendar .trainings .training .content .date span {
+          font-size: 20px; }
     .calendar .trainings .training a {
       color: white;
       text-decoration: none; }

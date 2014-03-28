@@ -38,8 +38,8 @@ frshnssServices.factory('BlogService', ['$http',
                   return result.data;
               });
           },
-          getPostById: function(){
-              return $http.get(baseUrl + '/:id').then(function(result){
+          getPostById: function(id){
+              return $http.get(baseUrl + '/' + id).then(function(result){
                   return result.data;
               });
           },
@@ -48,6 +48,14 @@ frshnssServices.factory('BlogService', ['$http',
           },
           deletePost: function(id){
               return $http.delete(baseUrl + '/' + id);
+          },
+          updatePost: function(post){
+              return $http.put(baseUrl + '/' + post._id, post)
+          },
+          getPostsByQuery: function(skip){
+              return $http.get('http://localhost:3000/queryposts/' + skip).then(function(result){
+                  return result.data;
+              });
           }
       }
     }

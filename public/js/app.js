@@ -38,6 +38,10 @@ frshnss.config(['$routeProvider',
         templateUrl: 'views/admin/blog/newpost.html',
         controller: 'NewPostCtrl'
       }).
+      when('/adm/blog/editpost', {
+        templateUrl: 'views/admin/blog/editpost.html',
+        controller: 'EditPostCtrl'
+      }).
       otherwise({
         redirectTo: '/home'
       });

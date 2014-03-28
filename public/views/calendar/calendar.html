@@ -1,21 +1,22 @@
 <div class="calendar" id="calendar">
-	<h1>{{title}}</h1>
-	<div class="timeline">
+	<img class="frsh-bullet" ng-src="img/bullet.png"/><h1>{{title | uppercase}}</h1>
+	<div class="smalldivider"></div>
+	<!--<div class="timeline">
 		<div class="date">
 			Week {{week}}
 		</div>
-	</div>
+	</div>-->
 	<div class="trainings">
 		<div ng-repeat="event in events.items" class="training" id="{{event.id}}">
 			<div class="spacer"></div>
 			<div class="contrast">
-				{{event.start.dateTime | date:'EEEE' | uppercase}}<br />
-				<a href="{{event.htmlLink}}">{{event.summary}}</a>
+				<p>{{event.start.dateTime | date:'EEEE' | uppercase}}
+				<a href="{{event.htmlLink}}">{{event.summary}}</a></p>
 			</div>
 			<div class="content">
-				{{event.description}}<br />
-				<div id="{{event.location}}">{{event.location | location}}</div>
-				{{event.start.dateTime | date:'HH:mm'}} - {{event.end.dateTime | date:'HH:mm'}}
+				<!--{{event.description}}<br />-->
+				<div id="{{event.location}}" class="{{event.location | location}}">{{event.location | location}}</div>
+				<div class="date">{{event.start.dateTime | date:'HH:mm'}} <span>°</span> {{event.end.dateTime | date:'HH:mm'}}</div>
 			</div>
 		</div>
 	</div>

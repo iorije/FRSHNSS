@@ -4,15 +4,15 @@
 		"url": "home"		
 	},
 	{
-		"linkName": "Blog",
-		"url": "#blog"		
-	},
-	{
 		"linkName": "About",
 		"url": "about"		
 	},
 	{
-		"linkName": "wines",
-		"url": "wines"
+		"linkName": "Admin",
+		"url": "adm"
+	},
+	{
+		"linkName": "Calendar",
+		"url": "#calendar"
 	}
 ]

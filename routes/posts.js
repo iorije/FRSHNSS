@@ -44,6 +44,7 @@ exports.update = function(db){
     return function(req, res){
         var id = req.params.id;
         var item = req.body;
+        delete item._id;
         console.log('Updating post: ' + id);
         console.log(JSON.stringify(item));
         db.collection('postCollection', function(err, collection){
@@ -74,5 +75,28 @@ exports.delete = function(db){
                 }
             });
         })
+    }
+};
+
+
+/*query object
+params = {
+    skip: int,
+    limit: int,
+    sort: {},
+    query: {},
+    projection: {}
+};
+*/
+exports.query = function(db){
+    return function(req, res){
+        var skipAmount = req.params.skip;
+        console.log('skip: ' + skipAmount);
+        db.collection('postCollection', function(err, collection){
+            collection.find().sort({createDate: -1}).skip(parseInt(skipAmount)).limit(1).toArray(function(err, items){
+                console.log(items);
+                res.send(items);
+            });
+        });
     }
 };

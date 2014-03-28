@@ -26,5 +26,8 @@ app.post('/posts', posts.add(db));
 app.put('/posts/:id', posts.update(db));
 app.delete('/posts/:id', posts.delete(db));
 
+app.get('/queryposts/:skip', posts.query(db));
+
+
 app.listen(3000);
 console.log('Server: started on port 3000.');

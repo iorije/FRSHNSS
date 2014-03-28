@@ -44,6 +44,21 @@ adminControllers.controller('BlogCtrl', ['$scope', 'BlogService',
     }
 ]);
 
+adminControllers.controller('EditPostCtrl', ['$scope', '$location', 'BlogService',
+	function($scope, $location, BlogService){
+		$scope.title = "Edit post";
+      	$scope.id = $location.search()['id'];
+      	BlogService.getPostById($scope.id).then(function(data){
+      		$scope.post = data;
+      	});
+
+      	$scope.updatePost = function(post){
+      		post.lastEdited = new Date();
+      		BlogService.updatePost(post);
+       	};
+     }
+]);
+
 adminControllers.controller('NewPostCtrl', ['$scope', 'BlogService',
 	function($scope, BlogService){
 		$scope.title = "Add new Post";

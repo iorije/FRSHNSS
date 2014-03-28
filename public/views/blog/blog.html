@@ -1,10 +1,11 @@
 <div class="blog">
-	<img class="bullet" ng-src="img/bullet.png"/><h1>{{title}}</h1>
+	<img class="frsh-bullet" ng-src="img/bullet.png"/><h1>{{title}}</h1>
 	<div class="smalldivider"></div>
 	<div ng-repeat="post in postCollection">
-		<h3 class="blogtitle" data-id="{{post._id}}">{{post.title | uppercase}}<span class="date">{{post.createDate | date:'dd-MM-yyyy'}}<span></h3>
+		<h2 class="blogtitle" data-id="{{post._id}}">{{post.title | uppercase}}<span class="date">{{post.createDate | date:'dd-MM-yyyy'}}<span></h2>
 		<img class="picture" ng-src="{{post.image}}"/>
 		<p><span class="subtitle">{{post.subtitle}}</span><br />{{post.content}}</p>
 		<!--<p>{{post | json}}</p>-->
 	</div>
+	<button ng-click="nextPost()">Next post</button>
 </div>

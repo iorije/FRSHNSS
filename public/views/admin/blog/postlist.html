@@ -1,5 +1,5 @@
 <ul ng-repeat="post in postCollection">
-	<li>{{post.title}} | {{post.author}} <span class="icon-trash" ng-click="deletePost($index,post._id)"></span></li>
+	<li>{{post.title}} | {{post.author}} <a href="index.html#/adm/blog/editpost?id={{post._id}}"><span class="icon-document-edit"></span></a> | <span class="icon-trash" ng-click="deletePost($index,post._id)"></span></li>
 </ul>
 <a href="index.html#/adm/blog/newpost">New Post</a><br />
 
