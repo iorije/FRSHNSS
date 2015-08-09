@@ -6,3 +6,17 @@
 	@include borderRadius(10);
 	padding: 10px 20px 10px 20px;
 }
+.imgMaxWidth{
+	width: $containerWidth;
+	@include break('flow'){
+		width:100%;
+	}
+}
+
+.redtext{
+	color:$red;
+}
+
+.clear{
+	clear:both;
+}

@@ -1,0 +1,30 @@
+<div class="head">
+	<span class="anker">{{name | uppercase}}</span>
+</div>
+<div class="event">
+	<div class="poster">
+		<a href="#/wtfii" target="_self">
+			<img ng-src="img/poster.png">
+		</a>
+	</div>
+	<div class="spacer">
+		&nbsp;
+	</div>
+	<div class="data">
+		<div class="date">
+			<span class="day">{{event.day}}</span> {{event.date}}
+		</div>
+		<div class="title">
+			<span class="what blackborder">battle</span><span class="what name">{{event.eventname}}</span>
+		</div>
+		<div class="subtitle">
+			{{event.subtitle}}
+		</div>
+		<div class="content">
+			Where: <a href="{{event.googlemap}}" target="_blank">{{event.place2be}}</a> | damage: <span class="redtext">{{event.damage}}</span> | doors: <span class="redtext">{{event.doors}}</span>
+		</div>
+		<div class="cta">
+			Check <a href="#/wtfii" target="_self">the site</a> and on our <a href="{{event.eventpage}}" target="_blank">event page</a> for updates
+		</div>
+	</div>
+</div>

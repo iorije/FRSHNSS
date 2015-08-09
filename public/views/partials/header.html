@@ -1,0 +1,29 @@
+<header>
+	<a href="index.html#/home">
+		<img ng-src="img/header.png" border="0" class="imgMaxWidth">
+	</a>
+
+  <div class="navwrapper">
+  	<div ng-controller="NavigationCtrl" id="nav">
+      <!-- <div class="divider"></div> -->
+  		<nav class="nav-collapse">
+  			<ul>
+          <li id="home">
+            <a href="index.html#/home">
+              <img ng-src="img/bullet_bl.png" border="0" />
+            </a>
+            <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button x">
+              <span class="lines"></span>
+            </button>
+          </li>
+  				<li ng-repeat="link in links" class="link">
+  					<a href="index.html#/{{link.url}}">
+  						{{link.linkName | uppercase}}
+  					</a>
+  				</li>
+  			</ul>
+  		</nav>
+  		<br class="clear" />
+    </div>
+  </div>
+</header>

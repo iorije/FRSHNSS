@@ -1,0 +1,49 @@
+<div class="wtfii">
+<!-- 	<img class="frsh-bullet" ng-src="img/bullet.png"/><h1>{{name | uppercase}}</h1>
+	<div class="smalldivider"></div> -->
+	<img ng-src="img/header_wtfii_update.png" class="imgMaxWidth" style="display:block; z-index:0;">
+	<div class="slogan">{{wtfii.slogan}}</div>
+	<div class="features">
+		<div ng-repeat="feature in wtfii.features" class="feature" id="{{feature.id}}">
+			<div class="spacer"></div>
+			<div class="contrast">
+				<p><span class="{{feature.id}}">{{feature.title | uppercase}}</span></p>
+			</div>
+			<div class="content">
+				<div class="price">
+					<img ng-src="{{feature.priceicon}}" alt="Price" />
+					{{feature.price | uppercase}}
+				</div>
+				<div class="dj">
+					<img ng-src="img/dj.png" alt="dj" /> <span ng-repeat="dj in feature.dj"><a href="{{dj.url}}" target="_blank">{{dj.amp === "amp" ? " &amp; " : ""}}{{dj.name}}</a></span>
+				</div>
+				<div class="judgestitle">
+					<span>Judges:</span>
+				</div>
+				<div ng-repeat="judge in feature.judges" class="judges">
+					<span class="judge">{{judge.name}}</span>
+				</div>
+				<div class="bottomborder"></div>
+				<div class="rules">
+					<img ng-src="img/register.png" class="registericon" />{{feature.qualif}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="jam">
+		<div class="spacer"></div>
+		<div class="contrast">
+			<p><span class="jamtitle">{{wtfii.jam.title | uppercase}}</span></p>
+		</div>
+		<div class="content">
+			<div class="dj">
+				<img ng-src="img/dj.png" alt="dj" /> <span ng-repeat="dj in wtfii.jam.dj"><a href="{{dj.url}}" target="_blank">{{dj.amp === "amp" ? " &amp; " : ""}}{{dj.name}}</a></span>
+			</div>
+			<div class="moreinfo">
+				<span>The after party starts at 21hOO and ends at 01h00</span>
+			</div>
+		</div>
+	</div>
+	<div class="welcometxt">{{wtfii.welcometxt}}</div>
+	<iframe width="960" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Jeugdhuis%20Rondpunt%2026%20(stad%20Genk)%2C%20Europalaan%2C%20Genk%2C%20Belgi%C3%AB&key=AIzaSyCOtyihLNMmbNwD4Y4k06kR3CIaLlh83Xk" class="imgMaxWidth"></iframe>
+</div>

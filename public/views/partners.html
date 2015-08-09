@@ -1,0 +1,12 @@
+<div class="ism" id="ism">
+	<img class="frsh-bullet" ng-src="img/bullet.png"/><h1>{{name | uppercase}}</h1>
+	<div class="smalldivider"></div>
+
+	<div class="partners">
+		<div ng-repeat="partner in partners" class="partner" id="{{partner.id}}" style="padding-top:{{partner.topspacing}};">
+		 	<a href="{{partner.url}}" target="_blank">
+		 		<img ng-src="{{partner.imgurl}}" alt="{{partner.imgalt}}" border="0" />
+		 	</a>
+		</div>
+	</div>
+</div>

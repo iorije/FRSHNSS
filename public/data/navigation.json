@@ -4,15 +4,15 @@
 		"url": "home"		
 	},
 	{
+		"linkName": "WTF II",
+		"url": "wtfii"
+	},
+	{
 		"linkName": "About",
 		"url": "about"		
 	},
 	{
-		"linkName": "Admin",
-		"url": "adm"
-	},
-	{
-		"linkName": "Calendar",
-		"url": "#calendar"
+		"linkName": "Partners",
+		"url": "partners"
 	}
 ]

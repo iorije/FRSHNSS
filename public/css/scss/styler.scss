@@ -12,6 +12,7 @@
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+    outline: none;
 }
 
 body {
@@ -24,29 +25,63 @@ body {
 .bodyContainer{
 	width: $containerWidth;
 	margin: 0 auto;
+	@include break('flow'){
+		width:100%;
+	}
 }
 
 footer{
 	background-color: $ftrBgColor;
 	color: $ftrColor;
-	height: 400px;
+	overflow: hidden;
+	height: auto;
 	margin-top: 5px;
 	font-family: 'open_sansbold';
 	.disclaimer{
 	  	font-family: 'open_sanslight';
 		text-align: center;
 		font-size: 12px;
-		padding-top: 5px;
 	}
 	.wrapper{
-		height:345px;
+		overflow: hidden;
+		height:auto;
+		padding-bottom: 10px;
 		.col{
 			@include columnWidthAndSettings(3, 10);
 			float: left;
 			padding-top: 10px;
 			text-align: center;
+			&:nth-child(2){
+				float: right;
+				width:auto;
+			}
+			@include break('flow'){
+				&:nth-child(3){
+					clear: left;
+				}
+				&:nth-child(1){
+					margin-right:0px;
+				}
+			}
+			@include break('small'){
+				width:100%;
+				margin:0 auto;
+				display: inline-block;
+				&:nth-child(2), &:nth-child(3){
+					width:50%;
+					float:right;
+				}
+			}
+			@include break('mini'){
+				&:nth-child(2), &:nth-child(3){
+					width:100%;
+				}
+			}
 			.partners{
 				margin-left: 10px;
+				@include break('small'){
+					margin-right: 10px;
+				}
 				background-color: $white;
 				color: $black;
 				-webkit-box-shadow: inset 0px 4px 28px -7px rgba(0, 0, 0, 0.5);
@@ -57,17 +92,46 @@ footer{
 					margin-top: 12px;
 				}
 				.partnerlogo{
+					padding: 15px 0 10px 0;
 					width: 130px;
 				}
+				span{
+					text-transform: uppercase;
+				}
+				a{
+					font-size:13px;
+					color:$black;
+					padding-left:10px;
+					line-height: 29px;
+				}
 			}
-			.regels{
-	  			font-family: 'open_sanslight';
-	  			text-align: left;
-				padding-left: 15px;
-	  			li{
-	  				padding-bottom: 15px;
-	  				list-style-type: none;
-	  			}
+			.rules{
+				padding-left: 10px;
+				.regels{
+		  			font-family: 'open_sanslight';
+		  			text-align: left;
+					padding-left: 0px;
+		  			li{
+		  				padding-bottom: 15px;
+		  				list-style-type: none;
+		  				img{
+		  					padding:0;
+		  					height: 20px;
+		  					width: 20px;
+		  				}
+		  			}
+		  			.accept{
+		  				font-size:13px;
+		  			}
+				}
+			}
+			.connect{
+				@include break('mini'){
+					padding-left: 10px;
+				}
+				.fb-follow{
+					float: left;
+				}
 			}
 			p{
 				text-align: left;
@@ -75,7 +139,7 @@ footer{
 	  				font-family: 'open_sanslight';
 	  				a{
 	  					color: $white;
-						text-shadow: 2px 2px $red;
+	  					font-weight: bold;
 	  				}
 				}
 			}
@@ -85,25 +149,6 @@ footer{
 
 h1{
 	margin-bottom: 0px;
-}
-
-.blog{
-	.blogtitle{
-		//font-family: 'open_sansbold';
-		margin: 20px 0 8px 0;
-		border-bottom: 1px solid $black;
-	}
-	.date{
-		color: $red;
-		float: right;
-		//font-family: 'open_sansbold';
-	}
-	.picture{
-		width: 960px;
-	}
-	.subtitle{
-		font-family: 'open_sansbold';
-	}
 }
 
 .calendar{
@@ -120,8 +165,25 @@ h1{
 			@include contrast1;
 		}
 	}
+	.head{
+		padding-top: 20px;
+		padding-bottom: 0px;
+		text-align: center;
+		span{
+			@include contrast1;
+			font-family: 'open_sansbold';
+			font-size: 40px;
+			padding:0 10px 0 10px;
+		}
+		.high{
+			@include contrast2;
+			font-family: 'open_sansbold';
+			font-size: 40px;
+			padding:0 10px 0 10px;
+		}
+	}
 	.trainings{
-		padding-top: 30px;
+		padding-top: 10px;
 		overflow: hidden; //clearing floats
 		.training{
 			@include columnWidthAndSettings(3, 10);
@@ -129,6 +191,13 @@ h1{
 			float: left;
 			font-family: 'open_sansbold';
 			font-size: 30px;
+			@include break('flow'){
+				@include columnWidthAndSettingsCenter(3, 10);
+				float:none;
+				position:relative;
+				left:50%;
+				margin-bottom: 20px;
+			}
 			.spacer{
 				@include width(3, 10, 7);
 				border: 2px solid $black;
@@ -144,36 +213,79 @@ h1{
 				&:after{
 					content: "";
 					width: 0px;
-					height: 89px;
+					height: 76px;
 					border-bottom: 7px solid transparent;
 					border-left: 7px solid $black;
 					position: relative;
 					float: right;
 					right: -7px;
-					top: -82px;
+					top: -69px;
 				}
 				p{
 					margin: 0px;
-					letter-spacing: 13px;
-					padding: 0 5px 0 5px;
-					text-align: center;
+					letter-spacing: 18px;
+					padding: 0 5px 0 10px;
+					font-size: 50px;
 				}
 				a{
 					letter-spacing: 13px;
 					padding: 0 5px 0 5px;
 					text-align: center;
 				}
+				.monday{
+					letter-spacing:10px;
+				}
+				.friday{
+					letter-spacing:20px;
+				}
+				.saturday{
+					letter-spacing:2px;
+				}
 			}
 			.content{
 				@include width(3, 10, 7);
 				border: 2px solid $black;
 				border-top: 0px;
-				padding: 10px 10px 0 10px;
-				.HASSELT{
-					letter-spacing: 23.6px;
+				padding: 10px 10px 0px 10px;
+				.hasselt{
+					letter-spacing: 13px;
+					text-align: right;
+					position: relative;
+					right: -4px;
+					top: 9px;
+					padding-bottom: 2px;
+					img{
+						padding-top: 15px;
+						height: 41px;
+						position: absolute;
+						left: -3px;
+						top: -9px;
+					}
 				}
-				.GENK{
-					letter-spacing: 63.4px;
+				.genk{
+					letter-spacing: 40px;
+					text-align: right;
+					position: relative;
+					right: -31px;
+					top: 9px;
+					padding-bottom: 2px;
+					img{
+						padding-top: 18px;
+						height: 41px;
+						position: absolute;
+						left: -29px;
+						top: -9px;
+					}
+				}
+				.hasseltstreet{
+					font-size: 20px;
+					letter-spacing:8.2px;
+					padding-bottom: 10px;
+				}
+				.genkstreet{
+					font-size: 20px;
+					letter-spacing:8.5px;
+					padding-bottom: 10px;
 				}
 				.date{
 					letter-spacing: 7.4px;
@@ -199,11 +311,16 @@ h1{
 	.qanda{
  		line-height: 28px; // http://www.pearsonified.com/typography/
 		overflow: auto; //clearing floats
-		margin-bottom: 20px;
+		//width:70%;
 		.q{
-			margin-bottom: 25px;
+			margin-bottom: 15px;
+			float:left;
+			max-width:80%;
+			min-width:25%;
 			p{
 				@include contrast1;
+				box-shadow: 4px 5px 7px #A5A5A5;
+				text-align:justify;
 			}
 			.triangle{
 				float: left;
@@ -212,9 +329,13 @@ h1{
 		}
 		.a{
 			text-align: right;
-			margin-bottom: 25px;
+			margin-bottom: 15px;
+			float:right;
+			max-width:80%;
 			p{
 				@include contrast2;
+				box-shadow: -4px 5px 7px #A5A5A5;
+				text-align:justify;
 			}
 			.triangle{
 				float: right;
@@ -232,18 +353,491 @@ h1{
 			margin: 0 20px 0 20px;
 		}
 	}
+	.wall{
+		margin-top:20px;
+		width:25%;
+		float:left;
+		margin-right:5%;
+		@include break('flow'){
+			display:none;
+			height:0;
+			width:0;
+			visibility: hidden;
+		}
+		img{
+			width:100%;
+		}
+	}
+	.spacer{
+		width:5%;
+		float:left;
+	}
+}
+
+.staffMembers{
 	.staff{
 		overflow: auto; //clearing floats
 		.member{
-			@include columnWidthAndSettings(4, 10);
+			@include columnWidthAndSettings(3, 30);
+			padding:40px 0 0 0;
 			float: left;
+		
+			&:nth-child(3){
+				margin-right: 0px;
+			}
+			&:nth-child(6){
+				margin-right: 0px;
+			}
+			&:nth-child(4){
+				margin-left: 0px;
+				clear: left; //needed to make 4 row go all the way to the left side unregarding what heigth any of its foregowing divs had.
+			}
 			img{ 
+				border-radius: 100%;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
 			}
 			p{
+			}
+			.name{
+				font-size:30px;
+				text-align: center;
+			}
+			.q{
+				width:80%;
+				margin-bottom: 15px;
+				border-left: 3px solid $black;
+				border-bottom: 1px solid $black;
+				padding:0 0 5px 5px;
+				font-family: 'open_sansbold';
+			}
+			.a{
+				width:80%;
+				margin-bottom: 15px;
+				margin-left: 20%;
+				text-align: right;
+				border-right: 3px solid $red;
+				border-bottom: 1px solid $red;
+				padding:0 5px 5px 0;
+			}
+		}
+	}
+}
+
+.what{
+	div{
+		p{
+			text-align: justify;
+			line-height:30px;
+			font-size:18px;
+			@include break('flow'){
+				padding-left:5px;
+				padding-right:5px;
+			}
+		}
+	}
+}
+
+.ism{
+	.partners{
+		padding-top: 20px;
+		overflow: hidden; //remove scrollbar
+		//overflow: auto; //clearing floats
+		@include break('small'){
+			margin: 0 auto;
+		}
+		.partner{
+			//border:1px solid #000000;
+			float:left;
+			@include columnWidthHeightAndSettings(4, 30);
+			@include break('flow'){
+				&:first-child{
+					margin-left: 30px;
+				}
+				&:last-child{
+					margin-right: 30px;
+				}
+			}
+			img{
+				@include columnWidthAndSettings(4, 32);
+			}
+		}
+	}
+}
+
+.event{
+	margin: 10px 0 0px 0;
+	@include contrast1;
+	overflow: hidden;
+    position: relative;
+	.poster{
+		width: 18%;
+		padding:1%;
+		float:left;
+		@include contrast1;
+		@include break('flow'){
+			display:none;
+			height:0;
+			width:0;
+			visibility: hidden;
+		}
+		img{
+			width:100%;
+			vertical-align: top;
+		}
+	}
+	.spacer{
+		width:1%;
+		background-color: $white;
+		float:left;
+		height: 100%;
+		padding-bottom: 32768px;
+		margin-bottom: -32768px;
+		@include break('flow'){
+			display:none;
+			height:0;
+			width:0;
+			visibility: hidden;
+		}
+	}
+	.data{
+		width:79%;
+		margin:1%;
+		float:left;
+		font-family: 'open_sansbold';
+		letter-spacing: 1px;
+		@include contrast1;
+		text-transform: uppercase;
+		@include break('flow'){
+			width:98% !important;
+		}
+		.date{
+			float:right;
+			font-size: 20px;
+			padding-bottom:8px;
+			.day{
+				color:$red;
+			}
+		}
+		.title{
+			overflow:hidden;
+			width:100%;
+			background-color: $white;
+			.what{
+				color:$black;
+				font-size: 40px;
+				text-transform: uppercase;
+				padding:0 10px;
+				margin-bottom:5px;
+				@include break('flow'){
+					width:100%;
+					float:left;
+				}
+			}
+			.blackborder{
+				border-right:3px solid $black;
+				@include break('flow'){
+					border-right:0px solid $white !important;
+					border-bottom:3px solid $black !important;
+				}
+			}
+			.name{
+				letter-spacing: 2px;
+			}
+		}
+		.subtitle{
+			font-size: 22px;
+			border:2px solid $white;
+			margin-top: 3px;
+			padding:5px 10px;
+		}
+		.content{
+			padding-top: 13px;
+			a{
+				color:$red;
+			}
+			a:hover{
+				color:$red;
+			}
+		}
+		.cta{
+			text-align: right;
+			padding-top: 17px;
+			font-size: 12px;
+			a{
+				color:$red;
+			}
+			a:hover{
+				color:$red;
+			}
+		}
+	}
+	&:after { //clear both trukske zonder html te fucke
+		clear: both;
+		display: block;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+		content: ".";
+		font-size: 0;
+  }
+}
+
+.wtfii{
+	color:$black;
+	padding-top: 20px;
+	.slogan{
+		background-color: $red;
+		color:$white;
+		padding:10px;
+		font-weight: bold;
+		font-size: 22px;	
+	}
+	.welcometxt{
+		font-family: 'open_sansextrabold';
+		padding:10px;
+		font-weight: bold;
+		font-size: 22px;	
+	}
+	.features{
+		padding-top: 10px;
+		overflow: hidden; //clearing floats
+		.feature{
+			@include columnWidthAndSettings(3, 10);
+			float: left;
+			font-family: 'open_sansbold';
+			font-size: 30px;
+			@include break('flow'){
+				@include columnWidthAndSettingsCenter(3, 10);
+				float:none;
+				position:relative;
+				left:50%;
+				margin-bottom: 20px;
+			}
+			.spacer{
+				@include width(3, 10, 7);
+				border: 2px solid $black;
+				border-bottom: 0px;
+				height: 30px;
+			}
+			.contrast{
 				@include contrast1;
-				margin-bottom: 2px;
-				margin-top: 2px;
-				a{}
+				@include width(3, 10, 7);
+				-webkit-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.3);
+				-moz-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.3);
+				box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.3);
+				&:after{
+					content: "";
+					width: 0px;
+					height: 62px;
+					border-bottom: 7px solid transparent;
+					border-left: 7px solid $black;
+					position: relative;
+					float: right;
+					right: -7px;
+					top: -56px;
+				}
+				p{
+					margin: 0px;
+					letter-spacing: 0px;
+					padding: 0 5px 0 10px;
+					font-size: 40px;
+				}
+				a{
+					letter-spacing: 13px;
+					padding: 0 5px 0 5px;
+					text-align: center;
+				}
+				.bboy{
+					letter-spacing:10px;
+				}
+				.standup{
+					letter-spacing:0px;
+				}
+				.crew{
+					letter-spacing:0px;
+				}
+			}
+			.content{
+				@include width(3, 10, 7);
+				border: 2px solid $black;
+				border-top: 0px;
+				padding: 10px 10px 0px 10px;
+				margin: 0px 0px 10px 0px;
+				.price{
+					text-align: right;
+					padding: 10px 0 10px 0;
+					img{
+						border: none;
+						height:30px;
+						float: left;
+						margin-top: 5px;
+					}
+				}
+				.dj{
+					letter-spacing: 0px;
+					text-align: right;
+					padding: 10px 0 10px 0;
+					img{
+						border: none;
+						height:30px;
+						float: left;
+					}
+					a{
+						color: $black;
+					}
+				}
+				.judgestitle{
+					color: $white;
+					background-color: $red;
+					font-size: 22px;
+					padding: 0 0 4px 13px;
+				}
+				.judges{
+					text-align: right;
+					.judge{
+						width: 100%;
+					}
+				}
+				.bottomborder{
+					border-bottom: 2px solid $black;
+					margin-bottom: 5px;
+				}
+				.rules{
+					font-size:16px;
+					text-align: center;
+					padding: 0 0 5px 0;
+					.registericon{
+						border: none;
+						height:15px;
+						padding: 3px 5px 0 0;
+					}
+					a{
+						color: $black;
+						&:hover{
+							color: $red;
+						}
+					}
+				}
+			}
+			a{
+				color: $linkColor;
+				text-decoration: none;
+				&:hover{
+					color: $linkColorHover;
+				}
+			}
+		}
+	}
+	.jam{
+		width: $containerWidth - 10;
+		margin: 0 10px 0 0;
+		float: left;
+		font-family: 'open_sansbold';
+		font-size: 30px;
+		@include break('flow'){
+			width: 100%;
+			float:none;
+			position:relative;
+			margin-bottom: 20px;
+		}
+		.spacer{
+			width: $containerWidth - 10;
+			@include break('flow'){
+				width: 100%;
+			}
+			border: 2px solid $black;
+			border-bottom: 0px;
+			height: 30px;
+		}
+		.contrast{
+			@include contrast1;
+			width: $containerWidth - 10;
+			-webkit-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.3);
+			-moz-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.3);
+			box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.3);
+			&:after{
+				content: "";
+				width: 0px;
+				height: 62px;
+				border-bottom: 7px solid transparent;
+				border-left: 7px solid $black;
+				position: relative;
+				float: right;
+				right: -7px;
+				top: -56px;
+			}
+			@include break('flow'){
+				width: 100%;
+				&:after{
+					content: "";
+					width: 0px;
+					height: 0px;
+					border-bottom: 0px solid transparent;
+					border-left: 0px solid $black;
+					position: relative;
+					float: right;
+					right: 0px;
+					top: 0px;
+				}
+			}
+			p{
+				margin: 0px;
+				letter-spacing: 0px;
+				padding: 0 5px 0 10px;
+				font-size: 40px;
+			}
+			a{
+				letter-spacing: 13px;
+				padding: 0 5px 0 5px;
+				text-align: center;
+			}
+		}
+		.content{
+			width: $containerWidth - 10;
+			@include break('flow'){
+				width: 100%;
+			}
+			border: 2px solid $black;
+			border-top: 0px;
+			padding: 10px 10px 0px 10px;
+			margin: 0px 0px 10px 0px;
+			.price{
+				text-align: right;
+				padding: 10px 0 10px 0;
+				img{
+					border: none;
+					height:30px;
+					float: left;
+					margin-top: 5px;
+				}
+			}
+			.dj{
+				letter-spacing: 0px;
+				text-align: right;
+				padding: 10px 0 10px 0;
+				img{
+					border: none;
+					height:30px;
+					float: left;
+				}
+				a{
+					color: $black;
+				}
+			}
+			.moreinfo{
+				color: $white;
+				background-color: $red;
+				text-align: center;
+				margin: 0 0 10px 0;
+			}
+		}
+		a{
+			color: $linkColor;
+			text-decoration: none;
+			&:hover{
+				color: $linkColorHover;
 			}
 		}
 	}

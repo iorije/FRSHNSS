@@ -5,7 +5,6 @@
 var frshnss = angular.module('frshnss', [
   'ngRoute',
   'frshnssControllers',
-  'adminControllers',
   'templateControllers',
   'frshnssServices',
   'frshnssFilters'
@@ -19,28 +18,16 @@ frshnss.config(['$routeProvider',
         controller: 'HomeCtrl'
       }).
       when('/about', {
-        templateUrl: 'views/about/about.html',
+        templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       }).
-      when('/adm', {
-        templateUrl: 'views/admin/index.html',
-        controller: 'AdminCtrl'
+      when('/partners', {
+        templateUrl: 'views/partners.html',
+        controller: 'PartnersCtrl'
       }).
-      when('/adm/users', {
-        templateUrl: 'views/admin/users/userlist.html',
-        controller: 'UserCtrl'
-      }).
-      when('/adm/blog', {
-        templateUrl: 'views/admin/blog/postlist.html',
-        controller: 'BlogCtrl'
-      }).
-      when('/adm/blog/newpost', {
-        templateUrl: 'views/admin/blog/newpost.html',
-        controller: 'NewPostCtrl'
-      }).
-      when('/adm/blog/editpost', {
-        templateUrl: 'views/admin/blog/editpost.html',
-        controller: 'EditPostCtrl'
+      when('/wtfii', {
+        templateUrl: 'views/wtfii.html',
+        controller: 'WtfiiCtrl'
       }).
       otherwise({
         redirectTo: '/home'

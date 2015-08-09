@@ -7,10 +7,10 @@
 // @font-face {
 //     @include font('open_sansbold_italic', 'fonts/opensans_bolditalic/OpenSans-BoldItalic-webfont');
 // }
-// // open_sansextrabold
-// @font-face {
-//     @include font('open_sansextrabold', 'fonts/opensans_extrabold/OpenSans-ExtraBold-webfont');
-// }
+// open_sansextrabold
+@font-face {
+    @include font('open_sansextrabold', 'fonts/opensans_extrabold/OpenSans-ExtraBold-webfont');
+}
 // // open_sansextrabold_italic
 // @font-face {
 //     @include font('open_sansextrabold_italic', 'fonts/opensans_extrabolditalic/OpenSans-ExtraBoldItalic-webfont');

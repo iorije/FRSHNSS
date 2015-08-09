@@ -1,0 +1,11 @@
+<div class="about">
+	<img class="frsh-bullet" ng-src="img/bullet.png"/><h1>{{name | uppercase}}</h1>
+	<div class="smalldivider"></div>
+	<div class="wall">
+		<img ng-src="img/placeholder_about.png">
+	</div>
+	<div class="qanda" ng-repeat="qa in conversation">
+		<div class="q"><p>{{qa.q}}</p><div class="triangle"></div></div>
+		<div class="a"><p>{{qa.a}}</p><div class="triangle"></div></div>
+	</div>
+</div>

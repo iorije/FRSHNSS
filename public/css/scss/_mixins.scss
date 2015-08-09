@@ -20,6 +20,22 @@
 	}
 }
 
+@mixin columnWidthHeightAndSettings($columns, $margin){
+	width: ($containerWidth - (((2 * $columns) - 2) * $margin)) / $columns;
+	height: ($containerWidth - (((2 * $columns) - 2) * $margin)) / $columns;
+	margin: 0 $margin+px 0 $margin+px;
+	&:first-child{
+		margin-left: 0px;
+	}
+	&:last-child{
+		margin-right: 0px;
+	}
+}
+
+@mixin columnWidthAndSettingsCenter($columns, $margin){
+	margin-left:-(($containerWidth - (((2 * $columns) - 2) * $margin)) / $columns)/2 !important;
+}
+
 @mixin width($columns, $margin, $space){
 	width: (($containerWidth - (((2 * $columns) - 2) * $margin)) / $columns) - $space;
 }
@@ -38,4 +54,16 @@
 	-webkit-border-radius: $radius+px;
 	-moz-border-radius: $radius+px;
 	border-radius: $radius+px;
+}
+
+@mixin break($point) {
+	@if $point == flow {
+		@media (max-width: $containerWidth) { @content ; }
+	}
+	@else if $point == small{
+		@media (max-width: 40em) { @content ; }
+	}
+	@else if $point == mini{
+		@media (max-width: 470px) { @content ; }
+	}
 }

@@ -6,16 +6,24 @@ var frshnssControllers = angular.module('frshnssControllers', []);
 
 frshnssControllers.controller('HomeCtrl', ['$scope', 'DataService',
 	function($scope, DataService){
-		console.log('Getting Homepage');
-		$scope.title = 'HOME';
+		$scope.name = 'home';
 	}
 ]);
 
-frshnssControllers.controller('AboutCtrl', ['$scope', '$http', 'DataService',
+frshnssControllers.controller('AboutCtrl', ['$scope',
+	function($scope){}
+]);
+
+frshnssControllers.controller('PartnersCtrl', ['$scope', '$http', 'DataService',
 	function($scope, $http, DataService){
-		$scope.data = DataService.get({fileName: 'about'});
-		$scope.save = function() {
-			$http.post('data/about.json', $scope.data);
-		};
+		$scope.partners = DataService.query({fileName: 'partners'});
+		$scope.name = "partners";
+	}
+]);
+
+frshnssControllers.controller('WtfiiCtrl', ['$scope', '$http', 'ObjectService',
+	function($scope, $http, ObjectService){
+		$scope.wtfii = ObjectService.query({fileName: 'wtfii'});
+		$scope.name = "Who's the Freshest II";
 	}
 ]);

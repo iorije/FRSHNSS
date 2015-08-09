@@ -1,0 +1,29 @@
+<div class="calendar" id="calendar">
+	<a name="calendar"></a>
+	<img class="frsh-bullet" ng-src="img/bullet.png"/><h1>{{name | uppercase}}</h1>
+	<div class="smalldivider"></div>
+	<div ng-event></div>
+	<br />
+	<div class="head">
+		<span>TRAINING</span>
+		<span class="high">EVERY</span>
+	</div>
+	<div class="trainings">
+		<div ng-repeat="trainingdate in trainingdata" class="training" id="{{trainingdate.id}}">
+			<div class="spacer"></div>
+			<div class="contrast">
+				<p><span class="{{trainingdate.day}}">{{trainingdate.day | uppercase}}</span></p>
+			</div>
+			<div class="content">
+				<div class="{{trainingdate.adres.city}}">
+					<img ng-src="{{trainingdate.ismlogourl}}" />
+					{{trainingdate.adres.city | uppercase}}
+				</div>
+				<div class="{{trainingdate.adres.city}}street">
+					{{trainingdate.adres.street | uppercase}}
+				</div>
+				<div class="date">{{trainingdate.when.start}} <span>°</span> {{trainingdate.when.end}}</div>
+			</div>
+		</div>
+	</div>
+</div>

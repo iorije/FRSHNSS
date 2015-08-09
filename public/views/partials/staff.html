@@ -1,0 +1,16 @@
+<div class="staffMembers">
+	<img class="frsh-bullet" ng-src="img/bullet.png"/><h1>{{name | uppercase}}</h1>
+	<div class="smalldivider"></div>
+	<div class="staff">
+		<div class="member" ng-repeat="member in staff">
+			<img ng-src="{{member.imgurl}}" alt="{{member.name}}">
+			<p class="name">{{member.name}}</p>
+			<p class="q">Why do you engage yourself for Freshness?</p>
+			<p class="a">{{member.engage}}</p>
+			<p class="q">What is your function?</p>
+			<p class="a">{{member.occupation}}</p>
+			<p class="q">Who inspires you?</p>
+			<p class="a">{{member.inspiration}}</p>
+		</div>
+	</div>
+</div>
